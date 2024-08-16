@@ -12,3 +12,6 @@ Combat is automatic:
 3) If player presses the SWITCH button, then switch will be carried out only in preparation stage or after a player attack
 4) Once enemy health is depleted, new enemy will spawn, depending on it's spawn chance
 5) Once player health is depleted, they will be returned to starting area
+
+Used resources:
+Unity 2D mobile project template
