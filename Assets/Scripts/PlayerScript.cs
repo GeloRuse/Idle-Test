@@ -36,6 +36,8 @@ public class PlayerScript : MonoBehaviour
     public float GetWeaponSpeed => playerWeapons[currentWeapon].GetStats.attackSpeed;
     public float GetWeaponSwitchTime => weaponSwitchTime;
 
+    private Coroutine switchCoroutine;
+
     private void Awake()
     {
         InitStats();
@@ -100,10 +102,15 @@ public class PlayerScript : MonoBehaviour
         }
         playerWeapons[currentWeapon].gameObject.SetActive(true);
         currentState = PlayerState.Preparing;
+
+        switchCoroutine = null;
     }
 
     public void HandleWeaponSwitch()
     {
-        StartCoroutine(SwitchWeapon());
+        if(switchCoroutine == null)
+        {
+            switchCoroutine = StartCoroutine(SwitchWeapon());
+        }
     }
 }
